@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    padding-left: 30px;
+}
+
+.catch-heading {
+    position: relative;
+    display: inline-block;
+}
+
+.astronaut-icon img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 3s ease-in-out infinite;
+}
+
+.glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 6vw;
+    font-weight: 600;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.glitch::before {
+    text-shadow: -2px 0 magenta;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+    text-shadow: 2px 0 lightgreen;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+}
+
+@keyframes noise-1 {
+    0% {
+        clip-path: inset(10px 0 40px 0);
+    }
+    25% {
+        clip-path: inset(30px 0 10px 0);
+    }
+    50% {
+        clip-path: inset(5px 0 25px 0);
+    }
+    75% {
+        clip-path: inset(40px 0 15px 0);
+    }
+    100% {
+        clip-path: inset(20px 0 35px 0);
+    }
+}
+
+@keyframes noise-2 {
+    0% {
+        clip-path: inset(20px 0 30px 0);
+    }
+    25% {
+        clip-path: inset(25px 0 5px 0);
+    }
+    50% {
+        clip-path: inset(10px 0 20px 0);
+    }
+    75% {
+        clip-path: inset(35px 0 10px 0);
+    }
+    100% {
+        clip-path: inset(15px 0 25px 0);
+    }
+}
+
+/* Subtitle Styles */
+.subtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1.2vw;
+    color: rgba(165, 141, 141, .6);
+    text-transform: uppercase;
+    letter-spacing: 1em;
+    margin-top: 20px;
+    animation: glitch-2 5s 5.02s infinite;
+}
+
+@keyframes glitch-2 {
+    1% {
+        transform: rotateX(10deg) skewX(70deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Game Container */
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 2px solid white;
+    margin: 20px auto;
+    background-color: black;
+    overflow: hidden;
+    margin-right: 29px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#moon, #bucket {
+    position: absolute;
+    font-size: 40px;
+}
+
+#moon {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+#bucket {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+#score {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #872341;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #BE3144;
+}
+
+#imgbucket {
+    height: 40px;
+    width: auto;
+}
+
+#imgmoon {
+    height: 60px;
+    width: auto;
+}
+
+#astr {
+    border-radius: 50%;
+}
+
+#game-container {
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#moon, #bucket {
+    font-size: 40px;
+}
+
+#moon {
+    transition: transform 0.9s ease;
+}
+
+#bucket {
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.1s ease;
+}
+
+#bucket img, #moon img {
+    vertical-align: middle;
+}
+
+#restart-button {
+    padding: 10px;
+    font-weight: bolder;
+}
+
+#start-button {
+    padding: 10px;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 480px) {
+    /* Reduce space further between glitch and subtitle */
+    .subtitle {
+        font-size: 2.5vw; 
+        margin-top: 3px    }
+    .glitch {
+        font-size: 10vw; 
+        padding-bottom: 0px; /* Further adjust font size for very small screens */
+    }
+    /* Keep the game container at full height */
+    #game-container {
+        width: 90%;
+        height: calc(100vh - 100px);
+        margin: 10px 0;
+    }
+
+    /* Adjust moon and bucket size for small screens */
+    #moon, #bucket {
+        font-size: 25px;
+    }
+
+    /* Adjust astronaut icon */
+    .astronaut-icon img {
+        width: 70px;
+        height: 70px;
+        top: -100px;  /* Make sure the astronaut stays in the viewable area */
+    }
+
+    /* Adjust score size */
+    #score {
+        font-size: 16px;
+    }
+
+    /* Smaller buttons for mobile screens */
+    #start-button, #restart-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    /* Body flexbox layout */
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+
+

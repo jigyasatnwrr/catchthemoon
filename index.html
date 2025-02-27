@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Moon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <div class="catch-heading">
+          <div class="astronaut-icon">
+            <img id="astr"  src="images/astr.png" alt="Astronaut" />
+          </div>
+          <div class="glitch" data-text="Catch the Moon">Catch the Moon</div>
+          <div class="subtitle">How many moons can you catch? <br>Move the bucket with arrow keys <br>and catch the moon!</div>
+        </div>
+        
+      </div>
+    
+    <div id="game-container">
+        <p id="score">Score: 0</p>
+        <div id="moon">
+            <img id="imgmoon"  src="images/moon.jpg" alt="">
+        </div>
+        <div id="bucket">
+            <img id="imgbucket"   src="images/bucket1.png" alt="">
+        </div>
+        
+    </div>
+    
+
+    <!-- Start Modal -->
+    <div id="start-modal" class="modal" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <button id="start-button">Start Game</button>
+    </div>
+    
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal" style="display: none; flex-direction: column; justify-content: center; align-items: center;">
+        <p id="final-score" style="font-size: 20px; color: white;"></p><br>
+        <button id="restart-button">Restart Game</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
